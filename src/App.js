@@ -69,7 +69,9 @@ function AssemblyEndgame() {
       <button
         className={className}
         key="letter"
-        onClick={() => addGuessedLetter(letter)}>
+        onClick={() => addGuessedLetter(letter)}
+        disabled={isGameOver}
+      >
           {letter.toUpperCase()}
       </button>
     )})
