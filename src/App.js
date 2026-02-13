@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import './App.css';
 import { languages } from './languages';
 import { getFarewellText } from './farewell';
+import { getRandomWord } from './utils';
 
 /**
  * Backlog:
@@ -16,7 +17,7 @@ import { getFarewellText } from './farewell';
 
 function AssemblyEndgame() {
   // State values
-  const [currentWord, setCurrentWord] = useState('react');
+  const [currentWord, setCurrentWord] = useState(() => getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
 
   // Derived values
