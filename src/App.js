@@ -4,6 +4,7 @@ import './App.css';
 import { languages } from './languages';
 import { getFarewellText } from './farewell';
 import { getRandomWord } from './utils';
+import ReactConfetti from 'react-confetti';
 
 /**
  * Backlog:
@@ -19,6 +20,7 @@ function AssemblyEndgame() {
   // State values
   const [currentWord, setCurrentWord] = useState(() => getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
+  console.log('Current WOrd is: ', currentWord);
 
   // Derived values
   const numGuessesLeft = languages.length - 1;
@@ -131,6 +133,11 @@ function AssemblyEndgame() {
 
   return (
     <main>
+        {isGameWon && 
+          <ReactConfetti 
+            recycle={false}
+            numberOfPieces={1000}
+          /> }
         <header>
           <h1>Assembly: Endgame</h1>
           <p>Guess the word within 8 attempts to keep the programming world safe from Assembly!</p>
